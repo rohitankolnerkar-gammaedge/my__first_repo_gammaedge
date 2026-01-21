@@ -13,11 +13,11 @@ if uploaded_file is not None:
     df=preprocess.preproocess1(data)
 
     #fetch unique users
-    user_li=df['user'].unique().tolist()
-    user_li.remove('group_notification')
-    user_li.sort()
-    user_li.insert(0,"overall")
-    selected_user=st.sidebar.selectbox("show analysis wrt",user_li)
+    user_l=df['user'].unique().tolist()
+    user_l.remove('group_notification')
+    user_l.sort()
+    user_l.insert(0,"overall")
+    selected_user=st.sidebar.selectbox("show analysis wrt",user_l)
 
     if st.sidebar.button("Show Analysis"):
         num_messages,words,num_media_messages,num_links=Helper.fetch_stats(selected_user,df)
